@@ -55,100 +55,83 @@ void mergeSort(int vetor[], int comeco, int fim){
     }
 }
 
+//Função com intuito de preencher o vetor com o tamanho necessário
+//7 = Aleatorio; 8 = Crescente; 9 = Decrescente
 void vetor(int x,int y, int v[]){
 	FILE *file;
 	int a;
-	if(x==10 && y==7)
-	{ 
-		
+	//Abre o arquivo aleatorio com 10 elementos
+	if(x==10 && y==7){		
 		file = fopen("Aleatorio10.txt","r");
-		
 	}
-	else if(x==1000 && y==7)
-	{
+	//Abre o arquivo aleatorio com 1000 elementos
+	else if(x==1000 && y==7){
 		file = fopen("Aleatorio1000.txt","r");
-
 	}
-	else if(x==10000 && y==7)
-	{
+	//Abre o arquivo aleatorio com 10000 elementos
+	else if(x==10000 && y==7){
 		file = fopen("Aleatorio10000.txt","r");
-
 	}
-	else if(x==100000 && y==7)
-	{
+	//Abre o arquivo aleatorio com 100000 elementos
+	else if(x==100000 && y==7){
 		file = fopen("Aleatorio100000.txt","r");
-
 	}
-	else if(x==1000000 && y==7)
-	{
+	//Abre o arquivo aleatorio com 1000000 elementos
+	else if(x==1000000 && y==7){
 		file = fopen("Aleatorio1000000.txt","r");
-
 	}
-	else if(x==10 && y==8)
-	{
+	//Abre o arquivo crescente com 10 elementos
+	else if(x==10 && y==8){
 		file = fopen("Crescente10.txt","r");
-		
 	}
-	else if(x==1000 && y==8)
-	{
+	//Abre o arquivo crescente com 1000 elementos
+	else if(x==1000 && y==8){
 		file = fopen("Crescente1000.txt","r");
-
 	}
-	else if(x==10000 && y==8)
-	{
+	//Abre o arquivo crescente com 10000 elementos
+	else if(x==10000 && y==8){
 		file = fopen("Crescente10000.txt","r");
-
 	}
-	else if(x==100000 && y==8)
-	{
+	//Abre o arquivo crescente com 100000 elementos
+	else if(x==100000 && y==8){
 		file = fopen("Crescente100000.txt","r");
-
 	}
-	else if(x==1000000 && y==8)
-	{
-		file = fopen("Crescente1000000.txt","r");
-
+	//Abre o arquivo crescente com 1000000 elementos
+	else if(x==1000000 && y==8){
+		file = fopen("Crescente1000000.txt","r")
 	}
-	else if(x==10 && y==9)
-	{
+	//Abre o arquivo decrescente com 10 elementos
+	else if(x==10 && y==9){
 		file = fopen("Decrescente10.txt","r");
-		
 	}
-	else if(x==1000 && y==9)
-	{
+	//Abre o arquivo decrescente com 1000 elementos
+	else if(x==1000 && y==9){
 		file = fopen("Decrescente1000.txt","r");
-
 	}
-	else if(x==10000 && y==9)
-	{
+	//Abre o arquivo decrescente com 10000 elementos
+	else if(x==10000 && y==9){
 		file = fopen("Decrescente10000.txt","r");
-
 	}
-	else if(x==100000 && y==9)
-	{
+	//Abre o arquivo decrescente com 100000 elementos
+	else if(x==100000 && y==9){
 		file = fopen("Decrescente100000.txt","r");
-
 	}
-	else if(x==1000000 && y==9)
-	{
+	//Abre o arquivo decrescente com 1000000 elementos
+	else if(x==1000000 && y==9){
 		file = fopen("Decrescente1000000.txt","r");
-
 	}
 	
 	int n = 0;
-    if(file==NULL)
-	{
-        printf("Erro ao abrir o arquivo.\n");
-        
-    } 
-   
-    for (n = 0; n < x; n++){
-			fscanf(file,"%d\n", &a);
-			v[n]=a;
-		}
-	
-    fclose(file);
-
+	//Caso nao tenha espaço para armazenar
+	if(file==NULL){
+        	printf("Erro ao abrir o arquivo.\n");
+	} 
+	//Lê o arquivo e armazena no vetor
+   	for (n = 0; n < x; n++){
+		fscanf(file,"%d\n", &a);
+		v[n]=a;
+	}
+	fclose(file);
 }
 
 int main(){
@@ -157,7 +140,9 @@ int main(){
 	float dura;
 	char string[20];
 	merge = fopen("Merge_Sort_Final.txt", "w");
-	int i = 10, j = 0, k = 7;
+	int i = 10, k = 7;
+	//int j = 0;
+	//Vai executar cada entrada e armazenar o tempo em segundos num arquivo txt
 	for(k = 7; k < 10; k++){
 		printf("Com %d: ", k);
 		for(i = 10; i <= 1000000; i=i*10){
